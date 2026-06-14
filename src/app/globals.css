@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand */
+  --color-primary: #d81b8c;
+  --color-primary-dark: #b02e87;
+  --color-primary-light: #e191b6;
+  --color-secondary: #6a1b9a;
+  --color-secondary-alt: #7a4b8b;
+  --color-premium: #9d50bb;
+
+  /* Text */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #706b63;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.85);
+
+  /* Surfaces */
+  --color-surface-white: #ffffff;
+  --color-surface-cream: #f9f7f2;
+  --color-surface-cream-2: #faf9f6;
+  --color-surface-beige: #f5f1eb;
+  --color-surface-beige-2: #e5e4e0;
+  --color-surface-gray: #f3f4f6;
+  --color-surface-dark: #000000;
+  --color-surface-input: #f2f2f2;
+
+  /* Badge */
+  --color-badge-gold: #fde68a;
+  --color-badge-gold-text: #1a1a1a;
+
+  /* Map */
+  --color-map-green-light: #e0f2f1;
+  --color-map-green-dark: #2e7d32;
+
+  /* Semantic */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* Layout */
+  --color-background: var(--color-surface-cream);
+  --color-foreground: var(--color-text-primary);
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-button: 0 4px 12px rgba(216, 27, 140, 0.25);
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  /* Spacing */
+  --section-y: 4rem;
+  --section-y-lg: 6rem;
+  --container-x: 1rem;
+
+  /* Typography scale */
+  --text-display-xl: clamp(2.25rem, 5vw, 4rem);
+  --text-display-lg: clamp(1.75rem, 4vw, 3rem);
+  --text-heading-md: clamp(1.5rem, 3vw, 2rem);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-alt: var(--color-secondary-alt);
+  --color-premium: var(--color-premium);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-on-dark: var(--color-text-on-dark);
+  --color-text-on-dark-muted: var(--color-text-on-dark-muted);
+
+  --color-surface-white: var(--color-surface-white);
+  --color-surface-cream: var(--color-surface-cream);
+  --color-surface-cream-2: var(--color-surface-cream-2);
+  --color-surface-beige: var(--color-surface-beige);
+  --color-surface-beige-2: var(--color-surface-beige-2);
+  --color-surface-gray: var(--color-surface-gray);
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-input: var(--color-surface-input);
+
+  --color-badge-gold: var(--color-badge-gold);
+  --color-badge-gold-text: var(--color-badge-gold-text);
+
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-script: var(--font-dancing-script);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-pill: var(--radius-pill);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+  --shadow-button: var(--shadow-button);
+  --shadow-subtle: var(--shadow-subtle);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-y: 5rem;
+    --section-y-lg: 7rem;
+    --container-x: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-y: 6rem;
+    --container-x: 2rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
