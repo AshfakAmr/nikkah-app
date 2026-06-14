@@ -9,7 +9,7 @@ export function AppPromoSection() {
       id="app-promo"
       background="white"
       spacing="default"
-      className="bg-[#f5f5f3]"
+      className="bg-[#EFEEEB]"
     >
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">

@@ -1,9 +1,51 @@
+import Image from "next/image";
 import { Star } from "lucide-react";
-import { homeTestimonials } from "@/features/home/data/home-content";
+import {
+  homeTestimonials,
+  type Testimonial,
+} from "@/features/home/data/home-content";
 import { PlaceholderImage } from "@/features/home/components/placeholder-image";
 import { SectionHeading } from "@/features/home/components/section-heading";
 import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
+
+function CoupleImage({ story }: { story: Testimonial }) {
+  const className =
+    "aspect-square w-full shrink-0 overflow-hidden rounded-xl md:w-40 lg:w-48";
+
+  if (!story.groomImageSrc || !story.brideImageSrc) {
+    return (
+      <PlaceholderImage
+        label={story.imagePlaceholder}
+        variant="couple"
+        className={className}
+      />
+    );
+  }
+
+  return (
+    <div className={cn("grid grid-cols-2 gap-0.5 bg-border", className)}>
+      <div className="relative h-full w-full">
+        <Image
+          src={story.groomImageSrc}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 50vw, 96px"
+          className="object-cover"
+        />
+      </div>
+      <div className="relative h-full w-full">
+        <Image
+          src={story.brideImageSrc}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 50vw, 96px"
+          className="object-cover"
+        />
+      </div>
+    </div>
+  );
+}
 
 function StarRating() {
   return (
@@ -42,12 +84,7 @@ export function TestimonialsSection() {
                   "transition-shadow duration-200 hover:shadow-card",
                 )}
               >
-                {/* TODO: Replace PlaceholderImage with next/image when couple photo assets are available */}
-                <PlaceholderImage
-                  label={story.imagePlaceholder}
-                  variant="couple"
-                  className="aspect-square w-full shrink-0 rounded-xl md:w-40 lg:w-48"
-                />
+                <CoupleImage story={story} />
                 <div className="flex flex-col gap-4">
                   <StarRating />
                   <blockquote className="font-serif text-lg leading-relaxed text-text-primary italic">

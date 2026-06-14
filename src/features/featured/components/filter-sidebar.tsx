@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import {
   industryFilterOptions,
   locationFilterOptions,
@@ -34,13 +34,25 @@ function FilterCheckbox({
       htmlFor={id}
       className="flex cursor-pointer items-center gap-3 text-sm text-text-secondary"
     >
-      <input
-        id={id}
-        type="checkbox"
-        checked={checked}
-        onChange={(event) => onChange(event.target.checked)}
-        className="size-4 rounded border-border text-primary focus:ring-primary"
-      />
+      <span className="relative inline-flex size-4 shrink-0">
+        <input
+          id={id}
+          type="checkbox"
+          checked={checked}
+          onChange={(event) => onChange(event.target.checked)}
+          className="peer sr-only"
+        />
+        <span
+          aria-hidden="true"
+          className={cn(
+            "inline-flex size-4 items-center justify-center rounded border transition-colors",
+            "border-border bg-surface-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary",
+            checked && "border-primary bg-primary",
+          )}
+        >
+          {checked ? <Check className="size-3 text-white" strokeWidth={3} /> : null}
+        </span>
+      </span>
       {label}
     </label>
   );

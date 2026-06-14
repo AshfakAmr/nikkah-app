@@ -84,7 +84,7 @@ export function HeroSection() {
           </div>
 
           <div className="relative mx-auto flex w-full max-w-md items-center justify-center md:max-w-none md:justify-end">
-            <div className="relative w-full max-w-[340px] drop-shadow-card-hover transition-transform duration-300 hover:scale-[1.02] md:max-w-[380px]">
+            <div className="relative w-full max-w-[400px] drop-shadow-card-hover transition-transform duration-300 hover:scale-[1.02] md:max-w-[460px] lg:max-w-[520px]">
               <Image
                 src="/assets/images/home-hero-cardImg.png"
                 alt={homeHero.cardStackAlt}
@@ -92,7 +92,7 @@ export function HeroSection() {
                 height={900}
                 priority
                 className="h-auto w-full"
-                sizes="(max-width: 768px) 340px, 380px"
+                sizes="(max-width: 768px) 400px, (max-width: 1024px) 460px, 520px"
               />
             </div>
           </div>

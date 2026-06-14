@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { FeaturedProfile, ProfileBadge } from "@/features/home/data/home-content";
 import { PlaceholderImage } from "@/features/home/components/placeholder-image";
@@ -32,11 +33,20 @@ export function ProfileCard({ profile, className }: ProfileCardProps) {
       )}
     >
       <div className="relative aspect-[4/5] overflow-hidden">
-        {/* TODO: Replace PlaceholderImage with next/image when profile photo assets are available */}
-        <PlaceholderImage
-          label={profile.imagePlaceholder}
-          className="h-full w-full transition-transform duration-300 group-hover:scale-105"
-        />
+        {profile.imageSrc ? (
+          <Image
+            src={profile.imageSrc}
+            alt={`${profile.name}, ${profile.age}`}
+            fill
+            sizes="(max-width: 768px) 50vw, 25vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <PlaceholderImage
+            label={profile.imagePlaceholder}
+            className="h-full w-full transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
         {profile.badge ? <ProfileBadgeTag badge={profile.badge} /> : null}
       </div>
       <div className="flex flex-1 flex-col gap-4 p-5">

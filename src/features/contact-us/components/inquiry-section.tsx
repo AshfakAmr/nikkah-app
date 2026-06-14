@@ -69,9 +69,9 @@ export function InquirySection() {
   };
 
   return (
-    <section aria-labelledby="contact-inquiry-heading" className="bg-surface-dark py-12 md:py-16">
+    <section aria-labelledby="contact-inquiry-heading" className="bg-surface-cream py-12 md:py-16">
       <Container>
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-8">
           <article className="rounded-3xl bg-surface-white p-6 shadow-card md:p-8">
             <h2
               id="contact-inquiry-heading"

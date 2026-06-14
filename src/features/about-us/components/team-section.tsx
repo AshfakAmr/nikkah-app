@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutTeam } from "@/features/about-us/data/about-content";
 import { PlaceholderImage } from "@/features/home/components/placeholder-image";
 import { SectionHeading } from "@/features/home/components/section-heading";
@@ -14,14 +15,26 @@ export function TeamSection() {
           {aboutTeam.members.map((member) => (
             <li key={member.id}>
               <article className="flex flex-col items-center text-center">
-                {/* TODO: Replace PlaceholderImage with next/image when team headshot assets are available */}
-                <PlaceholderImage
-                  label={member.imagePlaceholder}
-                  className={cn(
-                    "size-36 rounded-full border-2 border-border md:size-40",
-                    "transition-transform duration-200 hover:scale-105",
-                  )}
-                />
+                {member.imageSrc ? (
+                  <Image
+                    src={member.imageSrc}
+                    alt={`${member.name}, ${member.role}`}
+                    width={160}
+                    height={160}
+                    className={cn(
+                      "size-36 rounded-full border-2 border-border object-cover md:size-40",
+                      "transition-transform duration-200 hover:scale-105",
+                    )}
+                  />
+                ) : (
+                  <PlaceholderImage
+                    label={member.imagePlaceholder}
+                    className={cn(
+                      "size-36 rounded-full border-2 border-border md:size-40",
+                      "transition-transform duration-200 hover:scale-105",
+                    )}
+                  />
+                )}
                 <h3 className="mt-6 font-serif text-xl font-semibold text-text-primary">
                   {member.name}
                 </h3>

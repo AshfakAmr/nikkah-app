@@ -12,15 +12,15 @@ export function FeaturedProfilesSection() {
     <Section id="featured" background="default" spacing="default">
       <Tabs defaultValue="bride">
         <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <SectionHeading
               align="left"
               title={homeFeaturedProfiles.title}
               subtitle={homeFeaturedProfiles.subtitle}
               className="max-w-xl"
             />
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center lg:items-end">
-              <TabsList aria-label="Featured profile type" className="self-start lg:self-auto">
+            <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+              <TabsList aria-label="Featured profile type">
                 <TabsTrigger value="bride">Bride</TabsTrigger>
                 <TabsTrigger value="groom">Groom</TabsTrigger>
               </TabsList>

@@ -7,7 +7,7 @@ import { ContactCtaSection } from "@/features/contact-us/components/contact-cta-
 
 export function ContactPage() {
   return (
-    <PageShell mainClassName="bg-surface-dark">
+    <PageShell mainClassName="bg-surface-cream">
       <ContactHeroSection />
       <SupportOptionsSection />
       <InquirySection />

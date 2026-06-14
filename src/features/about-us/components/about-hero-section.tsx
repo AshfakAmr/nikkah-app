@@ -45,9 +45,9 @@ export function AboutHeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[center_25%]"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-surface-dark/55 via-surface-dark/45 to-surface-dark/65" />
+        <div className="absolute inset-0 bg-linear-to-b from-surface-dark/50 via-surface-dark/35 to-surface-dark/55" />
         <IslamicPattern />
       </div>
 
@@ -55,11 +55,11 @@ export function AboutHeroSection() {
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-20 text-center md:py-28">
           <h1
             id="about-hero-heading"
-            className="font-serif text-[length:var(--text-display-lg)] leading-tight text-text-on-dark md:text-5xl lg:text-6xl"
+            className="font-serif text-[length:var(--text-display-lg)] leading-tight !text-white md:text-5xl lg:text-6xl"
           >
             {aboutHero.title}
           </h1>
-          <p className="max-w-2xl text-base leading-relaxed text-text-on-dark-muted md:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
             {aboutHero.description}
           </p>
         </div>

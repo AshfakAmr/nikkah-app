@@ -3,50 +3,6 @@ import { SectionHeading } from "@/features/home/components/section-heading";
 import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
 
-function TimelineItem({ milestone }: { milestone: TimelineMilestone }) {
-  const isLeft = milestone.align === "left";
-
-  return (
-    <li className="relative grid grid-cols-[auto_1fr] gap-x-4 md:grid-cols-[1fr_auto_1fr] md:gap-x-0">
-      <div
-        className={cn(
-          "hidden md:flex md:items-start md:pr-10",
-          isLeft ? "md:justify-end md:text-right" : "md:invisible",
-        )}
-      >
-        {isLeft ? (
-          <MilestoneContent milestone={milestone} align="right" />
-        ) : null}
-      </div>
-
-      <div className="relative flex flex-col items-center md:col-start-2">
-        <div
-          className="relative z-10 size-3 shrink-0 rounded-full bg-primary"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div
-        className={cn(
-          "flex items-start pb-10 md:pb-12 md:pl-10",
-          isLeft ? "md:hidden" : "md:col-start-3",
-        )}
-      >
-        <MilestoneContent milestone={milestone} align={isLeft ? "left" : "left"} />
-      </div>
-
-      <div
-        className={cn(
-          "hidden md:flex md:items-start md:pl-10",
-          !isLeft ? "md:col-start-3 md:justify-start md:text-left" : "md:invisible",
-        )}
-      >
-        {!isLeft ? <MilestoneContent milestone={milestone} align="left" /> : null}
-      </div>
-    </li>
-  );
-}
-
 function MilestoneContent({
   milestone,
   align,
@@ -61,6 +17,43 @@ function MilestoneContent({
         {milestone.description}
       </p>
     </div>
+  );
+}
+
+function TimelineItem({ milestone }: { milestone: TimelineMilestone }) {
+  const isLeft = milestone.align === "left";
+
+  return (
+    <li className="relative grid grid-cols-[auto_1fr] gap-x-4 md:grid-cols-[1fr_auto_1fr] md:gap-x-0">
+      <div
+        className={cn(
+          "hidden md:flex md:items-start md:pr-10",
+          isLeft ? "md:justify-end md:text-right" : "md:invisible",
+        )}
+      >
+        {isLeft ? <MilestoneContent milestone={milestone} align="right" /> : null}
+      </div>
+
+      <div className="relative flex flex-col items-center md:col-start-2">
+        <div
+          className="relative z-10 size-3 shrink-0 rounded-full bg-primary"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="flex items-start pb-10 md:hidden md:pb-12">
+        <MilestoneContent milestone={milestone} align="left" />
+      </div>
+
+      <div
+        className={cn(
+          "hidden md:flex md:items-start md:pl-10",
+          !isLeft ? "md:col-start-3 md:justify-start md:text-left" : "md:invisible",
+        )}
+      >
+        {!isLeft ? <MilestoneContent milestone={milestone} align="left" /> : null}
+      </div>
+    </li>
   );
 }
 

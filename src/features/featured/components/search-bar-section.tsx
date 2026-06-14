@@ -25,15 +25,14 @@ export function SearchBarSection({
     <section className={cn("border-b border-border bg-surface-gray py-6 md:py-8", className)}>
       <Container>
         <form
-          className="flex flex-col gap-3 lg:flex-row lg:items-center"
           onSubmit={(event) => {
             event.preventDefault();
             onSubmit();
           }}
         >
-          <div className="relative flex flex-1 items-center">
+          <div className="flex h-14 items-center gap-2 rounded-pill border border-border bg-surface-white px-3 shadow-subtle sm:gap-3 sm:px-4">
             <Search
-              className="pointer-events-none absolute left-4 size-5 text-text-muted"
+              className="size-5 shrink-0 text-text-muted"
               aria-hidden="true"
             />
             <input
@@ -42,27 +41,28 @@ export function SearchBarSection({
               onChange={(event) => onQueryChange(event.target.value)}
               placeholder={searchBarCopy.placeholder}
               aria-label="Search profiles"
-              className="h-14 w-full rounded-pill border border-border bg-surface-white pr-4 pl-12 text-sm text-text-primary shadow-subtle placeholder:text-text-muted/70 focus:border-primary focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent text-sm text-text-primary placeholder:text-text-muted/70 focus:outline-none"
             />
-          </div>
-
-          <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={onOpenFilters}
-              className="inline-flex h-11 items-center gap-2 rounded-pill px-4 text-sm font-medium text-text-secondary transition-colors hover:text-primary lg:hidden"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-pill px-2 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:text-primary sm:gap-2 sm:px-3 sm:text-sm lg:hidden"
             >
               <SlidersHorizontal className="size-4" />
-              {searchBarCopy.advancedLabel}
+              <span className="hidden sm:inline">{searchBarCopy.advancedLabel}</span>
             </button>
             <button
               type="button"
-              className="hidden h-11 items-center gap-2 rounded-pill px-4 text-sm font-medium text-text-secondary transition-colors hover:text-primary lg:inline-flex"
+              className="hidden shrink-0 items-center gap-2 rounded-pill px-3 py-1.5 text-sm font-medium text-text-secondary transition-colors hover:text-primary lg:inline-flex"
             >
               <SlidersHorizontal className="size-4" />
               {searchBarCopy.advancedLabel}
             </button>
-            <Button type="submit" size="lg" className="min-w-[120px]">
+            <Button
+              type="submit"
+              size="md"
+              className="h-10 shrink-0 px-5 sm:px-6"
+            >
               {searchBarCopy.submitLabel}
             </Button>
           </div>

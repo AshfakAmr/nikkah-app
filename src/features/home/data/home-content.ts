@@ -81,7 +81,8 @@ export type FeaturedProfile = {
   profession: string;
   location: string;
   badge?: ProfileBadge;
-  /** TODO: Replace with real profile photo asset */
+  /** Remote portrait (randomuser.me). Falls back to imagePlaceholder when absent. */
+  imageSrc?: string;
   imagePlaceholder: string;
 };
 
@@ -97,6 +98,7 @@ export const homeFeaturedProfiles = {
       profession: "Doctor",
       location: "Sydney",
       badge: "premium",
+      imageSrc: "https://randomuser.me/api/portraits/women/44.jpg",
       imagePlaceholder: "S",
     },
     {
@@ -106,6 +108,7 @@ export const homeFeaturedProfiles = {
       profession: "Designer",
       location: "Perth",
       badge: "new",
+      imageSrc: "https://randomuser.me/api/portraits/women/12.jpg",
       imagePlaceholder: "L",
     },
     {
@@ -114,6 +117,7 @@ export const homeFeaturedProfiles = {
       age: 24,
       profession: "Engineer",
       location: "Brisbane",
+      imageSrc: "https://randomuser.me/api/portraits/women/90.jpg",
       imagePlaceholder: "A",
     },
     {
@@ -122,6 +126,7 @@ export const homeFeaturedProfiles = {
       age: 28,
       profession: "Teacher",
       location: "Adelaide",
+      imageSrc: "https://randomuser.me/api/portraits/women/68.jpg",
       imagePlaceholder: "M",
     },
   ] satisfies FeaturedProfile[],
@@ -133,6 +138,7 @@ export const homeFeaturedProfiles = {
       profession: "Architect",
       location: "Dubai",
       badge: "premium",
+      imageSrc: "https://randomuser.me/api/portraits/men/76.jpg",
       imagePlaceholder: "H",
     },
     {
@@ -142,6 +148,7 @@ export const homeFeaturedProfiles = {
       profession: "Engineer",
       location: "Melbourne",
       badge: "new",
+      imageSrc: "https://randomuser.me/api/portraits/men/45.jpg",
       imagePlaceholder: "O",
     },
     {
@@ -150,6 +157,7 @@ export const homeFeaturedProfiles = {
       age: 32,
       profession: "Doctor",
       location: "Sydney",
+      imageSrc: "https://randomuser.me/api/portraits/men/51.jpg",
       imagePlaceholder: "Y",
     },
     {
@@ -158,6 +166,7 @@ export const homeFeaturedProfiles = {
       age: 27,
       profession: "Consultant",
       location: "Brisbane",
+      imageSrc: "https://randomuser.me/api/portraits/men/85.jpg",
       imagePlaceholder: "Z",
     },
   ] satisfies FeaturedProfile[],
@@ -225,7 +234,9 @@ export type Testimonial = {
   names: string;
   marriedDate: string;
   quote: string;
-  /** TODO: Replace with real couple photo asset */
+  /** Remote couple portraits (randomuser.me): groom + bride. */
+  groomImageSrc?: string;
+  brideImageSrc?: string;
   imagePlaceholder: string;
 };
 
@@ -239,6 +250,8 @@ export const homeTestimonials = {
       marriedDate: "August 2023",
       quote:
         "We found each other through the verified search. The platform's emphasis on faith made us both feel comfortable from the start.",
+      groomImageSrc: "https://randomuser.me/api/portraits/men/86.jpg",
+      brideImageSrc: "https://randomuser.me/api/portraits/women/50.jpg",
       imagePlaceholder: "AF",
     },
     {
@@ -247,6 +260,8 @@ export const homeTestimonials = {
       marriedDate: "June 2024",
       quote:
         "The mobile app made it so easy to stay connected. We are so grateful for this intentional way of meeting our life partners.",
+      groomImageSrc: "https://randomuser.me/api/portraits/men/40.jpg",
+      brideImageSrc: "https://randomuser.me/api/portraits/women/72.jpg",
       imagePlaceholder: "YS",
     },
   ] satisfies Testimonial[],

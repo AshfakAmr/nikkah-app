@@ -9,7 +9,6 @@ function JourneyStepItem({ step, index }: { step: JourneyStep; index: number }) 
 
   return (
     <li className="relative grid grid-cols-[auto_1fr] gap-x-4 md:grid-cols-[1fr_auto_1fr] md:gap-x-0">
-      {/* Desktop left column */}
       <div
         className={cn(
           "hidden md:flex md:items-center md:pr-10",
@@ -31,7 +30,6 @@ function JourneyStepItem({ step, index }: { step: JourneyStep; index: number }) 
         ) : null}
       </div>
 
-      {/* Timeline node */}
       <div className="relative flex flex-col items-center md:col-start-2">
         <div
           className={cn(
@@ -49,14 +47,8 @@ function JourneyStepItem({ step, index }: { step: JourneyStep; index: number }) 
         ) : null}
       </div>
 
-      {/* Mobile + desktop right column text */}
-      <div
-        className={cn(
-          "flex items-center pb-10 md:pb-0 md:pl-10",
-          !isLeft ? "md:col-start-3" : "md:hidden",
-        )}
-      >
-        <div className={cn("max-w-xs", isLeft ? "md:hidden" : "")}>
+      <div className="flex items-center pb-10 md:hidden">
+        <div className="max-w-xs">
           <h3
             className={cn(
               "text-lg font-semibold",
@@ -69,7 +61,6 @@ function JourneyStepItem({ step, index }: { step: JourneyStep; index: number }) 
         </div>
       </div>
 
-      {/* Desktop right column */}
       <div
         className={cn(
           "hidden md:flex md:items-center md:pl-10",

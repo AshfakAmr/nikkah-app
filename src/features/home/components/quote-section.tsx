@@ -6,14 +6,14 @@ export function QuoteSection() {
   return (
     <Section
       id="quote"
-      background="dark"
+      background="cream"
       spacing="lg"
       contained={false}
-      className="bg-surface-dark"
+      className="bg-[#FBF9F6]"
     >
       <div className="mx-auto flex max-w-4xl flex-col items-center px-[var(--container-x)] text-center">
         <div
-          className="mb-8 flex size-12 items-center justify-center rounded-full bg-white/5"
+          className="mb-8 flex size-12 items-center justify-center rounded-full bg-primary/10"
           aria-hidden="true"
         >
           <Sparkles className="size-5 text-primary" />

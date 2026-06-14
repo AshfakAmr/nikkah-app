@@ -127,7 +127,8 @@ export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  /** TODO: Replace with real headshot asset */
+  /** Remote headshot (randomuser.me). Falls back to imagePlaceholder when absent. */
+  imageSrc?: string;
   imagePlaceholder: string;
 };
 
@@ -139,24 +140,28 @@ export const aboutTeam = {
       id: "omar",
       name: "Omar Al-Sayed",
       role: "Founder & CEO",
+      imageSrc: "https://randomuser.me/api/portraits/men/36.jpg",
       imagePlaceholder: "OA",
     },
     {
       id: "sarah",
       name: "Sarah Mansour",
       role: "Chief of Product",
+      imageSrc: "https://randomuser.me/api/portraits/women/63.jpg",
       imagePlaceholder: "SM",
     },
     {
       id: "zaid",
       name: "Zaid Malik",
       role: "Head of Security",
+      imageSrc: "https://randomuser.me/api/portraits/men/52.jpg",
       imagePlaceholder: "ZM",
     },
     {
       id: "layla",
       name: "Layla Ahmed",
       role: "Community Lead",
+      imageSrc: "https://randomuser.me/api/portraits/women/29.jpg",
       imagePlaceholder: "LA",
     },
   ] satisfies TeamMember[],
