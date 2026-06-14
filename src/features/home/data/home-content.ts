@@ -10,6 +10,11 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
+import {
+  muslimCouplePhoto,
+  muslimManPortrait,
+  muslimWomanPortrait,
+} from "@/lib/stock-images";
 
 export const homeHero = {
   eyebrow: "Faith-First Matrimony",
@@ -81,7 +86,7 @@ export type FeaturedProfile = {
   profession: string;
   location: string;
   badge?: ProfileBadge;
-  /** Remote portrait (randomuser.me). Falls back to imagePlaceholder when absent. */
+  /** High-quality Muslim portrait (Unsplash). Falls back to imagePlaceholder when absent. */
   imageSrc?: string;
   imagePlaceholder: string;
 };
@@ -98,7 +103,7 @@ export const homeFeaturedProfiles = {
       profession: "Doctor",
       location: "Sydney",
       badge: "premium",
-      imageSrc: "https://randomuser.me/api/portraits/women/44.jpg",
+      imageSrc: muslimWomanPortrait(0),
       imagePlaceholder: "S",
     },
     {
@@ -108,7 +113,7 @@ export const homeFeaturedProfiles = {
       profession: "Designer",
       location: "Perth",
       badge: "new",
-      imageSrc: "https://randomuser.me/api/portraits/women/12.jpg",
+      imageSrc: muslimWomanPortrait(1),
       imagePlaceholder: "L",
     },
     {
@@ -117,7 +122,7 @@ export const homeFeaturedProfiles = {
       age: 24,
       profession: "Engineer",
       location: "Brisbane",
-      imageSrc: "https://randomuser.me/api/portraits/women/90.jpg",
+      imageSrc: muslimWomanPortrait(2),
       imagePlaceholder: "A",
     },
     {
@@ -126,7 +131,7 @@ export const homeFeaturedProfiles = {
       age: 28,
       profession: "Teacher",
       location: "Adelaide",
-      imageSrc: "https://randomuser.me/api/portraits/women/68.jpg",
+      imageSrc: muslimWomanPortrait(3),
       imagePlaceholder: "M",
     },
   ] satisfies FeaturedProfile[],
@@ -138,7 +143,7 @@ export const homeFeaturedProfiles = {
       profession: "Architect",
       location: "Dubai",
       badge: "premium",
-      imageSrc: "https://randomuser.me/api/portraits/men/76.jpg",
+      imageSrc: muslimManPortrait(0),
       imagePlaceholder: "H",
     },
     {
@@ -148,7 +153,7 @@ export const homeFeaturedProfiles = {
       profession: "Engineer",
       location: "Melbourne",
       badge: "new",
-      imageSrc: "https://randomuser.me/api/portraits/men/45.jpg",
+      imageSrc: muslimManPortrait(1),
       imagePlaceholder: "O",
     },
     {
@@ -157,7 +162,7 @@ export const homeFeaturedProfiles = {
       age: 32,
       profession: "Doctor",
       location: "Sydney",
-      imageSrc: "https://randomuser.me/api/portraits/men/51.jpg",
+      imageSrc: muslimManPortrait(2),
       imagePlaceholder: "Y",
     },
     {
@@ -166,7 +171,7 @@ export const homeFeaturedProfiles = {
       age: 27,
       profession: "Consultant",
       location: "Brisbane",
-      imageSrc: "https://randomuser.me/api/portraits/men/85.jpg",
+      imageSrc: muslimManPortrait(3),
       imagePlaceholder: "Z",
     },
   ] satisfies FeaturedProfile[],
@@ -234,9 +239,8 @@ export type Testimonial = {
   names: string;
   marriedDate: string;
   quote: string;
-  /** Remote couple portraits (randomuser.me): groom + bride. */
-  groomImageSrc?: string;
-  brideImageSrc?: string;
+  /** Muslim wedding couple photo (single image). */
+  imageSrc?: string;
   imagePlaceholder: string;
 };
 
@@ -250,8 +254,7 @@ export const homeTestimonials = {
       marriedDate: "August 2023",
       quote:
         "We found each other through the verified search. The platform's emphasis on faith made us both feel comfortable from the start.",
-      groomImageSrc: "https://randomuser.me/api/portraits/men/86.jpg",
-      brideImageSrc: "https://randomuser.me/api/portraits/women/50.jpg",
+      imageSrc: muslimCouplePhoto(0),
       imagePlaceholder: "AF",
     },
     {
@@ -260,8 +263,7 @@ export const homeTestimonials = {
       marriedDate: "June 2024",
       quote:
         "The mobile app made it so easy to stay connected. We are so grateful for this intentional way of meeting our life partners.",
-      groomImageSrc: "https://randomuser.me/api/portraits/men/40.jpg",
-      brideImageSrc: "https://randomuser.me/api/portraits/women/72.jpg",
+      imageSrc: muslimCouplePhoto(1),
       imagePlaceholder: "YS",
     },
   ] satisfies Testimonial[],

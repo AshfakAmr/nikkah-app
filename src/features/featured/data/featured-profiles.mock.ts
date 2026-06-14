@@ -1,6 +1,19 @@
 import type { DirectoryProfile } from "@/features/featured/types/profile";
+import { muslimManPortrait, muslimWomanPortrait } from "@/lib/stock-images";
 
-export const mockFeaturedProfiles: DirectoryProfile[] = [
+const FEMALE_NAMES = new Set([
+  "Sara",
+  "Zoya",
+  "Mariam",
+  "Laila",
+  "Fatima",
+  "Noor",
+  "Aisha",
+  "Hannah",
+  "Sumaya",
+]);
+
+const baseFeaturedProfiles: DirectoryProfile[] = [
   {
     id: "sara-25",
     name: "Sara",
@@ -13,7 +26,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "S",
-    imagePath: "https://randomuser.me/api/portraits/women/44.jpg",
     locations: ["australia", "global"],
     industries: ["healthcare"],
     sect: "sunni",
@@ -31,7 +43,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "A",
-    imagePath: "https://randomuser.me/api/portraits/men/32.jpg",
     locations: ["australia", "global"],
     industries: ["legal"],
     sect: "sunni",
@@ -49,7 +60,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "Z",
-    imagePath: "https://randomuser.me/api/portraits/women/65.jpg",
     locations: ["new-zealand", "global"],
     industries: ["tech"],
     sect: "sunni",
@@ -67,7 +77,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "O",
-    imagePath: "https://randomuser.me/api/portraits/men/45.jpg",
     locations: ["australia", "global"],
     industries: ["finance"],
     sect: "sunni",
@@ -85,7 +94,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "M",
-    imagePath: "https://randomuser.me/api/portraits/women/68.jpg",
     locations: ["australia", "global"],
     industries: ["tech"],
     sect: "sunni",
@@ -103,7 +111,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "Y",
-    imagePath: "https://randomuser.me/api/portraits/men/51.jpg",
     locations: ["australia", "global"],
     industries: ["tech"],
     sect: "sunni",
@@ -121,7 +128,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "L",
-    imagePath: "https://randomuser.me/api/portraits/women/12.jpg",
     locations: ["global"],
     industries: ["tech"],
     sect: "sunni",
@@ -139,7 +145,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "H",
-    imagePath: "https://randomuser.me/api/portraits/men/76.jpg",
     locations: ["global"],
     industries: ["tech"],
     sect: "sunni",
@@ -157,7 +162,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "F",
-    imagePath: "https://randomuser.me/api/portraits/women/9.jpg",
     locations: ["australia", "global"],
     industries: ["education"],
     sect: "sunni",
@@ -175,7 +179,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "I",
-    imagePath: "https://randomuser.me/api/portraits/men/83.jpg",
     locations: ["global"],
     industries: ["healthcare"],
     sect: "sunni",
@@ -193,7 +196,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "N",
-    imagePath: "https://randomuser.me/api/portraits/women/33.jpg",
     locations: ["new-zealand", "global"],
     industries: ["tech"],
     sect: "shia",
@@ -211,7 +213,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "K",
-    imagePath: "https://randomuser.me/api/portraits/men/22.jpg",
     locations: ["australia", "global"],
     industries: ["tech"],
     sect: "sunni",
@@ -229,7 +230,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "Ai",
-    imagePath: "https://randomuser.me/api/portraits/women/57.jpg",
     locations: ["australia", "global"],
     industries: ["healthcare"],
     sect: "sunni",
@@ -247,7 +247,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "T",
-    imagePath: "https://randomuser.me/api/portraits/men/4.jpg",
     locations: ["australia", "global"],
     industries: ["education"],
     sect: "sunni",
@@ -265,7 +264,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "Ha",
-    imagePath: "https://randomuser.me/api/portraits/women/26.jpg",
     locations: ["new-zealand", "global"],
     industries: ["legal"],
     sect: "sunni",
@@ -283,7 +281,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "Ad",
-    imagePath: "https://randomuser.me/api/portraits/men/61.jpg",
     locations: ["australia", "global"],
     industries: ["finance"],
     sect: "sunni",
@@ -301,7 +298,6 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: true,
     imagePlaceholder: "Su",
-    imagePath: "https://randomuser.me/api/portraits/women/79.jpg",
     locations: ["global"],
     industries: ["healthcare"],
     sect: "sunni",
@@ -319,10 +315,21 @@ export const mockFeaturedProfiles: DirectoryProfile[] = [
     verified: true,
     premium: false,
     imagePlaceholder: "R",
-    imagePath: "https://randomuser.me/api/portraits/men/14.jpg",
     locations: ["australia", "global"],
     industries: ["tech"],
     sect: "other",
     createdAt: "2025-01-05",
   },
 ];
+
+let womanIndex = 0;
+let manIndex = 0;
+
+export const mockFeaturedProfiles: DirectoryProfile[] = baseFeaturedProfiles.map(
+  (profile) => ({
+    ...profile,
+    imagePath: FEMALE_NAMES.has(profile.name)
+      ? muslimWomanPortrait(womanIndex++)
+      : muslimManPortrait(manIndex++),
+  }),
+);

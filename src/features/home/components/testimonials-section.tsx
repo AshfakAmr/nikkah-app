@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 
 function CoupleImage({ story }: { story: Testimonial }) {
   const className =
-    "aspect-square w-full shrink-0 overflow-hidden rounded-xl md:w-40 lg:w-48";
+    "relative aspect-square w-full shrink-0 overflow-hidden rounded-xl md:w-40 lg:w-48";
 
-  if (!story.groomImageSrc || !story.brideImageSrc) {
+  if (!story.imageSrc) {
     return (
       <PlaceholderImage
         label={story.imagePlaceholder}
@@ -24,25 +24,14 @@ function CoupleImage({ story }: { story: Testimonial }) {
   }
 
   return (
-    <div className={cn("grid grid-cols-2 gap-0.5 bg-border", className)}>
-      <div className="relative h-full w-full">
-        <Image
-          src={story.groomImageSrc}
-          alt=""
-          fill
-          sizes="(max-width: 768px) 50vw, 96px"
-          className="object-cover"
-        />
-      </div>
-      <div className="relative h-full w-full">
-        <Image
-          src={story.brideImageSrc}
-          alt=""
-          fill
-          sizes="(max-width: 768px) 50vw, 96px"
-          className="object-cover"
-        />
-      </div>
+    <div className={className}>
+      <Image
+        src={story.imageSrc}
+        alt={`${story.names} wedding photo`}
+        fill
+        sizes="(max-width: 768px) 100vw, 192px"
+        className="object-cover"
+      />
     </div>
   );
 }

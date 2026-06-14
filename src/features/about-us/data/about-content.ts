@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
+import { muslimTeamPortrait, muslimMenPortraits, muslimWomenPortraits } from "@/lib/stock-images";
 
 export const aboutHero = {
   title: "Founded in Faith, Guided by Love",
@@ -127,7 +128,7 @@ export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  /** Remote headshot (randomuser.me). Falls back to imagePlaceholder when absent. */
+  /** High-quality Muslim headshot (Unsplash). Falls back to imagePlaceholder when absent. */
   imageSrc?: string;
   imagePlaceholder: string;
 };
@@ -140,28 +141,28 @@ export const aboutTeam = {
       id: "omar",
       name: "Omar Al-Sayed",
       role: "Founder & CEO",
-      imageSrc: "https://randomuser.me/api/portraits/men/36.jpg",
+      imageSrc: muslimTeamPortrait(muslimMenPortraits[0]),
       imagePlaceholder: "OA",
     },
     {
       id: "sarah",
       name: "Sarah Mansour",
       role: "Chief of Product",
-      imageSrc: "https://randomuser.me/api/portraits/women/63.jpg",
+      imageSrc: muslimTeamPortrait(muslimWomenPortraits[0]),
       imagePlaceholder: "SM",
     },
     {
       id: "zaid",
       name: "Zaid Malik",
       role: "Head of Security",
-      imageSrc: "https://randomuser.me/api/portraits/men/52.jpg",
+      imageSrc: muslimTeamPortrait(muslimMenPortraits[1]),
       imagePlaceholder: "ZM",
     },
     {
       id: "layla",
       name: "Layla Ahmed",
       role: "Community Lead",
-      imageSrc: "https://randomuser.me/api/portraits/women/29.jpg",
+      imageSrc: muslimTeamPortrait(muslimWomenPortraits[1]),
       imagePlaceholder: "LA",
     },
   ] satisfies TeamMember[],
